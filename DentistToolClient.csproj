@@ -90,6 +90,7 @@
   <ItemGroup>
     <Compile Include="CRUD\AppointmentController.cs" />
     <Compile Include="CRUD\AuthorizationController.cs" />
+    <Compile Include="CRUD\DoctorController.cs" />
     <Compile Include="CRUD\PatientController.cs" />
     <Compile Include="CRUD\XrayController.cs" />
     <Compile Include="frmAddAppointment.cs">

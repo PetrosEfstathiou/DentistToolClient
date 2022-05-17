@@ -86,7 +86,7 @@ namespace DentistToolClient.CRUD
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Add("accept", "text/plain");
             //{"id":"int","name": "strin3g","surname": "string","email": "string", "telnum": "string",  "nation": "string",  "dob": "string",  "bloodtype": "string",  "address": "string"}
-            var payload = "{\"id\":\"" + updatedp.Id + "\"," + "\"Name\":\"" + updatedp.Name + "\"," + "\"Surname\":\"" + updatedp.Surname + "\"," + "\"email\":\"" + updatedp.email + "\"," + "\"telnum\":\"" + updatedp.telnum + "\"," + "\"nation\":\"" + updatedp.nation + "\"," + "\"dob\":\"" + updatedp.dob + "\"," + "\"bloodtype\":\"" + updatedp.bloodtype + "\"," + "\"address\":\"" + updatedp.address + "\"}";
+            var payload = "{\"id\":" + updatedp.Id + "," + "\"Name\":\"" + updatedp.Name + "\"," + "\"Surname\":\"" + updatedp.Surname + "\"," + "\"email\":\"" + updatedp.email + "\"," + "\"telnum\":\"" + updatedp.telnum + "\"," + "\"nation\":\"" + updatedp.nation + "\"," + "\"dob\":\"" + updatedp.dob + "\"," + "\"bloodtype\":\"" + updatedp.bloodtype + "\"," + "\"address\":\"" + updatedp.address + "\"}";
             HttpContent C = new StringContent(payload, Encoding.UTF8, "application/json");
             var response = client.PutAsync("PatientController/UpdatePatient", C);
             response.Wait();
