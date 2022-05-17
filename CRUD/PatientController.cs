@@ -43,6 +43,22 @@ namespace DentistToolClient.CRUD
 
         }
 
+        public ServiceResponse<List<Patient>> GetbyTel(int tel)
+        {
+            ServicePointManager.ServerCertificateValidationCallback += (o, c, ch, er) => true;
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(server);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Add("accept", "text/plain");
+            var response = client.GetAsync("PatientController/GetbyTel?tel=" + tel.ToString());
+            response.Wait();
+            var data = response.Result;
+            var readTask = data.Content.ReadAsAsync<ServiceResponse<List<Patient>>>();
+            readTask.Wait();
+            return readTask.Result;
+
+        }
+
         public ServiceResponse<List<Patient>> AddPatient(Patient p)
         {
             ServicePointManager.ServerCertificateValidationCallback += (o, c, ch, er) => true;

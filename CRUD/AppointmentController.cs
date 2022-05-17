@@ -41,6 +41,8 @@ namespace DentistToolClient.CRUD
             readTask.Wait();
             return readTask.Result;
         }
+
+
         public ServiceResponse<List<Appointment>> CancelAppointment(Appointment CAppointment) 
         {
             ServicePointManager.ServerCertificateValidationCallback += (o, c, ch, er) => true;
