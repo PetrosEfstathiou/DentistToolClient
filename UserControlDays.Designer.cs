@@ -44,11 +44,14 @@ namespace DentistToolClient
             // 
             // lblApps
             // 
-            this.lblApps.AutoSize = true;
-            this.lblApps.Location = new System.Drawing.Point(72, 45);
+            this.lblApps.Enabled = false;
+            this.lblApps.Location = new System.Drawing.Point(3, 44);
             this.lblApps.Name = "lblApps";
-            this.lblApps.Size = new System.Drawing.Size(0, 13);
+            this.lblApps.Size = new System.Drawing.Size(153, 22);
             this.lblApps.TabIndex = 2;
+            this.lblApps.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblApps.Click += new System.EventHandler(this.lblApps_Click);
+            this.lblApps.DoubleClick += new System.EventHandler(this.lblApps_DoubleClick);
             // 
             // UserControlDays
             // 
@@ -60,6 +63,11 @@ namespace DentistToolClient
             this.Name = "UserControlDays";
             this.Size = new System.Drawing.Size(159, 75);
             this.Load += new System.EventHandler(this.UserControlDays_Load);
+            this.DoubleClick += new System.EventHandler(this.UserControlDays_DoubleClick);
+            this.Enter += new System.EventHandler(this.UserControlDays_Enter);
+            this.Leave += new System.EventHandler(this.UserControlDays_Leave);
+            this.MouseEnter += new System.EventHandler(this.UserControlDays_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.UserControlDays_MouseLeave);
             this.ResumeLayout(false);
             this.PerformLayout();
 

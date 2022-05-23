@@ -1,7 +1,7 @@
 ﻿
 namespace DentistToolClient
 {
-    partial class frmAddAppointment
+    partial class frmEditDayAppointment
     {
         /// <summary>
         /// Required designer variable.
@@ -30,11 +30,7 @@ namespace DentistToolClient
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lstPatients = new System.Windows.Forms.ListBox();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.rdbTel = new System.Windows.Forms.RadioButton();
-            this.rdbID = new System.Windows.Forms.RadioButton();
+            this.lstAppointment = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbHour = new System.Windows.Forms.ComboBox();
@@ -42,7 +38,7 @@ namespace DentistToolClient
             this.txtAppReason = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -50,73 +46,24 @@ namespace DentistToolClient
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lstPatients);
-            this.groupBox1.Controls.Add(this.txtSearch);
-            this.groupBox1.Controls.Add(this.btnSearch);
-            this.groupBox1.Controls.Add(this.rdbTel);
-            this.groupBox1.Controls.Add(this.rdbID);
+            this.groupBox1.Controls.Add(this.lstAppointment);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(459, 134);
-            this.groupBox1.TabIndex = 1;
+            this.groupBox1.Size = new System.Drawing.Size(440, 200);
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Select Patient";
+            this.groupBox1.Text = "Select Appointment to Edit:";
             // 
-            // lstPatients
+            // lstAppointment
             // 
-            this.lstPatients.FormattingEnabled = true;
-            this.lstPatients.ItemHeight = 16;
-            this.lstPatients.Location = new System.Drawing.Point(183, 22);
-            this.lstPatients.Name = "lstPatients";
-            this.lstPatients.Size = new System.Drawing.Size(259, 100);
-            this.lstPatients.TabIndex = 5;
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(45, 65);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(100, 22);
-            this.txtSearch.TabIndex = 4;
-            this.txtSearch.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(45, 94);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(100, 23);
-            this.btnSearch.TabIndex = 3;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // rdbTel
-            // 
-            this.rdbTel.AutoSize = true;
-            this.rdbTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbTel.Location = new System.Drawing.Point(45, 42);
-            this.rdbTel.Name = "rdbTel";
-            this.rdbTel.Size = new System.Drawing.Size(86, 20);
-            this.rdbTel.TabIndex = 2;
-            this.rdbTel.TabStop = true;
-            this.rdbTel.Text = "Phone No";
-            this.rdbTel.UseVisualStyleBackColor = true;
-            this.rdbTel.CheckedChanged += new System.EventHandler(this.rdbTel_CheckedChanged);
-            // 
-            // rdbID
-            // 
-            this.rdbID.AutoSize = true;
-            this.rdbID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbID.Location = new System.Drawing.Point(45, 19);
-            this.rdbID.Name = "rdbID";
-            this.rdbID.Size = new System.Drawing.Size(39, 20);
-            this.rdbID.TabIndex = 1;
-            this.rdbID.TabStop = true;
-            this.rdbID.Text = "ID";
-            this.rdbID.UseVisualStyleBackColor = true;
-            this.rdbID.CheckedChanged += new System.EventHandler(this.rdbID_CheckedChanged);
+            this.lstAppointment.FormattingEnabled = true;
+            this.lstAppointment.ItemHeight = 16;
+            this.lstAppointment.Location = new System.Drawing.Point(7, 22);
+            this.lstAppointment.Name = "lstAppointment";
+            this.lstAppointment.Size = new System.Drawing.Size(427, 164);
+            this.lstAppointment.TabIndex = 0;
+            this.lstAppointment.SelectedIndexChanged += new System.EventHandler(this.lstAppointment_SelectedIndexChanged);
             // 
             // groupBox3
             // 
@@ -127,10 +74,10 @@ namespace DentistToolClient
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(13, 152);
+            this.groupBox3.Location = new System.Drawing.Point(12, 233);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(459, 140);
-            this.groupBox3.TabIndex = 7;
+            this.groupBox3.Size = new System.Drawing.Size(440, 140);
+            this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Appointment Details";
             // 
@@ -205,7 +152,6 @@ namespace DentistToolClient
             this.cmbHour.Name = "cmbHour";
             this.cmbHour.Size = new System.Drawing.Size(78, 24);
             this.cmbHour.TabIndex = 17;
-            this.cmbHour.SelectedIndexChanged += new System.EventHandler(this.cmbHour_SelectedIndexChanged);
             // 
             // cmbDuration
             // 
@@ -229,7 +175,7 @@ namespace DentistToolClient
             this.txtAppReason.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAppReason.Location = new System.Drawing.Point(194, 97);
             this.txtAppReason.Name = "txtAppReason";
-            this.txtAppReason.Size = new System.Drawing.Size(246, 22);
+            this.txtAppReason.Size = new System.Drawing.Size(240, 22);
             this.txtAppReason.TabIndex = 14;
             // 
             // label2
@@ -252,42 +198,41 @@ namespace DentistToolClient
             this.label1.TabIndex = 10;
             this.label1.Text = "Duration (minutes)";
             // 
-            // btnAdd
+            // btnEdit
             // 
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(44, 298);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(138, 37);
-            this.btnAdd.TabIndex = 8;
-            this.btnAdd.Text = "Add Appointment";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Location = new System.Drawing.Point(55, 388);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(145, 33);
+            this.btnEdit.TabIndex = 10;
+            this.btnEdit.Text = "Update Appointment";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(352, 298);
+            this.btnCancel.Location = new System.Drawing.Point(274, 388);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(85, 37);
-            this.btnCancel.TabIndex = 9;
+            this.btnCancel.Size = new System.Drawing.Size(94, 33);
+            this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // frmAddAppointment
+            // frmEditDayAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 343);
+            this.ClientSize = new System.Drawing.Size(466, 439);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
-            this.Name = "frmAddAppointment";
-            this.Text = "AddAppointment";
-            this.Load += new System.EventHandler(this.frmAddAppointment_Load);
+            this.Name = "frmEditDayAppointment";
+            this.Text = "Edit Appointment";
+            this.Load += new System.EventHandler(this.frmEditAppointment_Load);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
@@ -295,20 +240,17 @@ namespace DentistToolClient
         }
 
         #endregion
+
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.RadioButton rdbTel;
-        private System.Windows.Forms.RadioButton rdbID;
-        private System.Windows.Forms.ListBox lstPatients;
+        private System.Windows.Forms.ListBox lstAppointment;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cmbHour;
         private System.Windows.Forms.ComboBox cmbDuration;
         private System.Windows.Forms.TextBox txtAppReason;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cmbHour;
     }
 }

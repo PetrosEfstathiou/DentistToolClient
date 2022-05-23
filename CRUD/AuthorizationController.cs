@@ -30,7 +30,7 @@ namespace DentistToolClient.CRUD
             return readTask.Result;
         }
 
-        public ServiceResponse<int> Login(User user)
+        public ServiceResponse<string> Login(User user)
         {
             ServicePointManager.ServerCertificateValidationCallback += (o, c, ch, er) => true;
             HttpClient client = new HttpClient();
@@ -43,7 +43,7 @@ namespace DentistToolClient.CRUD
             var response = client.PostAsync("Auth/Login", C);
             response.Wait();
             var data = response.Result;
-            var readTask = data.Content.ReadAsAsync<ServiceResponse<int>>();
+            var readTask = data.Content.ReadAsAsync<ServiceResponse<string>>();
             readTask.Wait();
             return readTask.Result;
         }

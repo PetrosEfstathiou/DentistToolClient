@@ -11,66 +11,55 @@ using static DentistToolClient.Globals;
 
 namespace DentistToolClient.CRUD
 {
-    class XrayController
+    class TreatmentCostController
     {
-        
-        public ServiceResponse<int> AddXray(AddXrayDto xray)
+        public ServiceResponse<List<TreatmentCost>> GetAll()
         {
             ServicePointManager.ServerCertificateValidationCallback += (o, c, ch, er) => true;
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(server);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Add("accept", "text/plain");
-            //{"patient": 0,"xrname": "string","xrimage": "string","xrcreated": "2022-05-16T16:21:34.764Z"}
+            var response = client.GetAsync("TreatmentCostController/GetAll");
+            response.Wait();
+            var data = response.Result;
+            var readTask = data.Content.ReadAsAsync<ServiceResponse<List<TreatmentCost>>>();
+            readTask.Wait();
+            return readTask.Result;
+        }
+
+        public ServiceResponse<List<TreatmentCost>> AddTC(TreatmentCost newTC)
+        {
+            ServicePointManager.ServerCertificateValidationCallback += (o, c, ch, er) => true;
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(server);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Add("accept", "text/plain");
             var jsonSettings = new JsonSerializerSettings();
-            var payload = JsonConvert.SerializeObject(xray);
-           // var payload = "{\"patient\":" + xray.patient + "," + "\"xrname\":\"" + xray.xrname + "\"," + "\"xrimage\":\"" + xray.xrimage + "\"," + "\"xrcreated\":\"" + JsonConvert.SerializeObject(xray.xrcreated) + "\"}";
+            var payload = JsonConvert.SerializeObject(newTC);
             HttpContent C = new StringContent(payload, Encoding.UTF8, "application/json");
-            var response = client.PostAsync("XrayController/AddXray", C);
+            var response = client.PostAsync("TreatmentCostController/AddTreatmentCost", C);
             response.Wait();
             var data = response.Result;
-            var readTask = data.Content.ReadAsAsync<ServiceResponse<int>>();
+            var readTask = data.Content.ReadAsAsync<ServiceResponse<List<TreatmentCost>>>();
             readTask.Wait();
             return readTask.Result;
-
         }
 
-        public ServiceResponse<List<Xray>> GetXray(int pID)
+        public ServiceResponse<List<TreatmentCost>> DeleteTC(int id)
         {
             ServicePointManager.ServerCertificateValidationCallback += (o, c, ch, er) => true;
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(server);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Add("accept", "text/plain");
-            var response = client.GetAsync("XrayController/GetbyID?id=" + pID.ToString());
+            var response = client.DeleteAsync("TreatmentCostController/DeleteTreatmentCostDeletebyId?id="+id.ToString());
             response.Wait();
             var data = response.Result;
-            var readTask = data.Content.ReadAsAsync<ServiceResponse<List<Xray>>>();
-            readTask.Wait();
-            return readTask.Result;
-
-        }
-
-        public ServiceResponse<int> DeleteXray(int ID)
-        {
-            ServicePointManager.ServerCertificateValidationCallback += (o, c, ch, er) => true;
-            HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri(server);
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Add("accept", "text/plain");
-            var response = client.DeleteAsync("XrayController/DeletebyId?id=" + ID.ToString());
-            response.Wait();
-            var data = response.Result;
-            var readTask = data.Content.ReadAsAsync<ServiceResponse<int>>();
+            var readTask = data.Content.ReadAsAsync<ServiceResponse<List<TreatmentCost>>>();
             readTask.Wait();
             return readTask.Result;
         }
-
-
-
 
     }
-
-
-
 }

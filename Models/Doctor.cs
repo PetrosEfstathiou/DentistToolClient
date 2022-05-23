@@ -15,5 +15,13 @@ namespace DentistToolClient.Models
         public string email { get; set; } = "Test";
         public string telnum { get; set; } = "Test";
         public string address { get; set; } = "Test";
+        public string ListView
+        {
+            get
+            {
+                return $"({Id}) {Name} {Surname} {specialty}";
+            }
+
+        }
     }
 }

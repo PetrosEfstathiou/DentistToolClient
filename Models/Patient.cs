@@ -17,6 +17,14 @@ namespace DentistToolClient.Models
         public string dob { get; set; }
         public string bloodtype { get; set; }
         public string address { get; set; }
+        public string ListView
+        {
+            get
+            {
+                return $"({Id}) {Name} {Surname} ";
+            }
+
+        }
     }
 
 }

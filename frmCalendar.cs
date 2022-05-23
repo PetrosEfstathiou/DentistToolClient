@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DentistToolClient.CRUD;
+using DentistToolClient.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,9 +13,12 @@ using System.Windows.Forms;
 
 namespace DentistToolClient
 {
+    
     public partial class frmCalendar : Form
     {
-        int month, year;
+        static List<Doctor> SelectedDoctor = new List<Doctor>();
+       
+        public static int month, year, SD;
         public frmCalendar()
         {
             InitializeComponent();
@@ -21,8 +26,11 @@ namespace DentistToolClient
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            displayDays();
-            update(month,year);
+            DoctorController dbdoc = new DoctorController();
+            var retdoc = dbdoc.GetAll();
+            SelectedDoctor.AddRange(retdoc.Data);
+            cmbDoctor.DataSource = SelectedDoctor;
+            cmbDoctor.DisplayMember = "ListView";
         }
 
         private void update(int month, int year)
@@ -32,7 +40,7 @@ namespace DentistToolClient
         }
         private void displayDays()
         {
-            
+            flpDaysContainer.Controls.Clear();
 
             DateTime now = DateTime.Now;
             month = now.Month;
@@ -49,12 +57,21 @@ namespace DentistToolClient
             {
                 UserControlBlank ucblank = new UserControlBlank();
                 flpDaysContainer.Controls.Add(ucblank);
+
             }
             //monthdays
             for (int i = 1; i <= days; i++)
             {
                 UserControlDays ucdays = new UserControlDays();
+
+                List<Appointment> apps = new List<Appointment>();
+                AppointmentController db = new AppointmentController();
+                DateTime dt = new DateTime(frmCalendar.year, frmCalendar.month, i);
+                var ret = db.GetAppointmentsbyDate(dt,SelectedDoctor[cmbDoctor.SelectedIndex].Id);
+                apps.AddRange(ret.Data);
+                ucdays.numappointments(apps.Count);
                 ucdays.days(i);
+                
                 flpDaysContainer.Controls.Add(ucdays);
             }
 
@@ -89,9 +106,27 @@ namespace DentistToolClient
             for (int i = 1; i <= days; i++)
             {
                 UserControlDays ucdays = new UserControlDays();
+                List<Appointment> apps = new List<Appointment>();
+                AppointmentController db = new AppointmentController();
+                DateTime dt = new DateTime(frmCalendar.year, frmCalendar.month, i);
+                var ret = db.GetAppointmentsbyDate(dt, SelectedDoctor[cmbDoctor.SelectedIndex].Id);
+                apps.AddRange(ret.Data);
+                ucdays.numappointments(apps.Count);
                 ucdays.days(i);
                 flpDaysContainer.Controls.Add(ucdays);
             }
+        }
+
+        private void frmCalendar_Activated(object sender, EventArgs e)
+        {
+            displayDays();
+            update(month, year);
+        }
+
+        private void cmbDoctor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SD = SelectedDoctor[cmbDoctor.SelectedIndex].Id;
+            displayDays();
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -122,6 +157,12 @@ namespace DentistToolClient
             for (int i = 1; i <= days; i++)
             {
                 UserControlDays ucdays = new UserControlDays();
+                List<Appointment> apps = new List<Appointment>();
+                AppointmentController db = new AppointmentController();
+                DateTime dt = new DateTime(frmCalendar.year, frmCalendar.month, i);
+                var ret = db.GetAppointmentsbyDate(dt, SelectedDoctor[cmbDoctor.SelectedIndex].Id);
+                apps.AddRange(ret.Data);
+                ucdays.numappointments(apps.Count);
                 ucdays.days(i);
                 flpDaysContainer.Controls.Add(ucdays);
             }

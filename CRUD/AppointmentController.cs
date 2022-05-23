@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace DentistToolClient.CRUD
 {
@@ -42,21 +43,51 @@ namespace DentistToolClient.CRUD
             return readTask.Result;
         }
 
-
-        public ServiceResponse<List<Appointment>> CancelAppointment(Appointment CAppointment) 
+        public ServiceResponse<Appointment> GetAppointmentsbyAppID(int id)
         {
             ServicePointManager.ServerCertificateValidationCallback += (o, c, ch, er) => true;
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(server);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Add("accept", "text/plain");
-            //{"id": 0,"cancelled": true,"cancelReason": "string","dateTime": "2022-05-16T15:55:11.203Z","mduration": 0,"appReason": "string","patient": 0}
-            var payload = "{\"id\":" + CAppointment.id + "," + "\"cancelled\":" + CAppointment.cancelled + "," + "\"cancelReason\":\"" + CAppointment.CancelReason + "\"," + "\"dateTime\":\"" + CAppointment.dateTime + "\"," + "\"mduration\":" + CAppointment.mduration + "," + "\"appReason\":\"" + CAppointment.AppReason + "\"," + "\"patient\":" + CAppointment.patient + "}";
+            var response = client.GetAsync("AppointmentController/GetbyAppID?id=" + id.ToString());
+            response.Wait();
+            var data = response.Result;
+            var readTask = data.Content.ReadAsAsync<ServiceResponse<Appointment>>();
+            readTask.Wait();
+            return readTask.Result;
+        }
+
+        public ServiceResponse<List<Appointment>> GetAppointmentsbyDate(DateTime date,int doc)
+        {
+            ServicePointManager.ServerCertificateValidationCallback += (o, c, ch, er) => true;
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(server);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Add("accept", "text/plain");
+            var response = client.GetAsync("AppointmentController/GetbyDate?date="+date+"&doctor="+doc.ToString());
+            response.Wait();
+            var data = response.Result;
+            var readTask = data.Content.ReadAsAsync<ServiceResponse<List<Appointment>>>();
+            readTask.Wait();
+            return readTask.Result;
+        }
+
+
+        public ServiceResponse<Appointment> CancelAppointment(Appointment CAppointment) 
+        {
+            ServicePointManager.ServerCertificateValidationCallback += (o, c, ch, er) => true;
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(server);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Add("accept", "text/plain");
+            var jsonSettings = new JsonSerializerSettings();
+            var payload = JsonConvert.SerializeObject(CAppointment);
             HttpContent C = new StringContent(payload, Encoding.UTF8, "application/json");
             var response = client.PutAsync("AppointmentController/CancelAppointment", C);
             response.Wait();
             var data = response.Result;
-            var readTask = data.Content.ReadAsAsync<ServiceResponse<List<Appointment>>>();
+            var readTask = data.Content.ReadAsAsync<ServiceResponse<Appointment>>();
             readTask.Wait();
             return readTask.Result;
         }
@@ -67,8 +98,8 @@ namespace DentistToolClient.CRUD
             client.BaseAddress = new Uri(server);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Add("accept", "text/plain");
-            //{"dateTime": "2022-05-16T15:39:35.732Z","mduration": 0,"appReason": "striasdasng","patient": 0}
-            var payload = "{\"dateTime\":\"" + newAppointment.dateTime + "\"," + "\"mduration\":" + newAppointment.mduration + "," + "\"appReason\":\"" + newAppointment.AppReason + "\"," + "\"patient\":" + newAppointment.id + "}";
+            var jsonSettings = new JsonSerializerSettings();
+            var payload = JsonConvert.SerializeObject(newAppointment);
             HttpContent C = new StringContent(payload, Encoding.UTF8, "application/json");
             var response = client.PostAsync("AppointmentController/AddAppointment", C);
             response.Wait();
@@ -77,20 +108,20 @@ namespace DentistToolClient.CRUD
             readTask.Wait();
             return readTask.Result;
         }
-        public ServiceResponse<List<Appointment>> UpdateAppointment(Appointment updatedAppointment)
+        public ServiceResponse<Appointment> UpdateAppointment(Appointment updatedAppointment)
         {
             ServicePointManager.ServerCertificateValidationCallback += (o, c, ch, er) => true;
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(server);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Add("accept", "text/plain");
-            //{"id": 0,"cancelled": true,"cancelReason": "string","dateTime": "2022-05-16T15:55:11.203Z","mduration": 0,"appReason": "string","patient": 0}
-            var payload = "{\"id\":" + updatedAppointment.id + "," + "\"cancelled\":" + updatedAppointment.cancelled + "," + "\"cancelReason\":\"" + updatedAppointment.CancelReason + "\"," + "\"dateTime\":\"" + updatedAppointment.dateTime + "\"," + "\"mduration\":" + updatedAppointment.mduration + "," + "\"appReason\":\"" + updatedAppointment.AppReason + "\"," + "\"patient\":" + updatedAppointment.patient + "}";
+            var jsonSettings = new JsonSerializerSettings();
+            var payload = JsonConvert.SerializeObject(updatedAppointment);
             HttpContent C = new StringContent(payload, Encoding.UTF8, "application/json");
             var response = client.PutAsync("AppointmentController/UpdateAppointment", C);
             response.Wait();
             var data = response.Result;
-            var readTask = data.Content.ReadAsAsync<ServiceResponse<List<Appointment>>>();
+            var readTask = data.Content.ReadAsAsync<ServiceResponse<Appointment>>();
             readTask.Wait();
             return readTask.Result;
         }

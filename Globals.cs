@@ -9,5 +9,8 @@ namespace DentistToolClient
     public static class Globals
     {
         public const string server = "https://localhost:7200/";
+        public static string JWTtoken = "";
+        public static int FinishedApp;
+         
     }
 }

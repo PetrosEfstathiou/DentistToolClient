@@ -40,6 +40,7 @@ namespace DentistToolClient
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
             this.lblmonthyear = new System.Windows.Forms.Label();
+            this.cmbDoctor = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // flpDaysContainer
@@ -149,11 +150,23 @@ namespace DentistToolClient
             this.lblmonthyear.Text = "Month Year";
             this.lblmonthyear.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // cmbDoctor
+            // 
+            this.cmbDoctor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDoctor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbDoctor.FormattingEnabled = true;
+            this.cmbDoctor.Location = new System.Drawing.Point(776, 18);
+            this.cmbDoctor.Name = "cmbDoctor";
+            this.cmbDoctor.Size = new System.Drawing.Size(402, 28);
+            this.cmbDoctor.TabIndex = 22;
+            this.cmbDoctor.SelectedIndexChanged += new System.EventHandler(this.cmbDoctor_SelectedIndexChanged);
+            // 
             // frmCalendar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1197, 679);
+            this.Controls.Add(this.cmbDoctor);
             this.Controls.Add(this.lblmonthyear);
             this.Controls.Add(this.flpDaysContainer);
             this.Controls.Add(this.label5);
@@ -167,6 +180,7 @@ namespace DentistToolClient
             this.Controls.Add(this.btnPrevious);
             this.Name = "frmCalendar";
             this.Text = "Form1";
+            this.Activated += new System.EventHandler(this.frmCalendar_Activated);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -186,5 +200,6 @@ namespace DentistToolClient
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.Label lblmonthyear;
+        private System.Windows.Forms.ComboBox cmbDoctor;
     }
 }

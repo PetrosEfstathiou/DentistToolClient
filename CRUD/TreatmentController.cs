@@ -11,22 +11,19 @@ using static DentistToolClient.Globals;
 
 namespace DentistToolClient.CRUD
 {
-    class XrayController
+    class TreatmentController
     {
-        
-        public ServiceResponse<int> AddXray(AddXrayDto xray)
+        public ServiceResponse<int> AddTreatment(Treatment treat)
         {
             ServicePointManager.ServerCertificateValidationCallback += (o, c, ch, er) => true;
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(server);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Add("accept", "text/plain");
-            //{"patient": 0,"xrname": "string","xrimage": "string","xrcreated": "2022-05-16T16:21:34.764Z"}
             var jsonSettings = new JsonSerializerSettings();
-            var payload = JsonConvert.SerializeObject(xray);
-           // var payload = "{\"patient\":" + xray.patient + "," + "\"xrname\":\"" + xray.xrname + "\"," + "\"xrimage\":\"" + xray.xrimage + "\"," + "\"xrcreated\":\"" + JsonConvert.SerializeObject(xray.xrcreated) + "\"}";
+            var payload = JsonConvert.SerializeObject(treat);
             HttpContent C = new StringContent(payload, Encoding.UTF8, "application/json");
-            var response = client.PostAsync("XrayController/AddXray", C);
+            var response = client.PostAsync("TreatmentController/AddTreatment", C);
             response.Wait();
             var data = response.Result;
             var readTask = data.Content.ReadAsAsync<ServiceResponse<int>>();
@@ -35,42 +32,56 @@ namespace DentistToolClient.CRUD
 
         }
 
-        public ServiceResponse<List<Xray>> GetXray(int pID)
+        public ServiceResponse<Treatment> GetTreatment(int pID)
         {
             ServicePointManager.ServerCertificateValidationCallback += (o, c, ch, er) => true;
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(server);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Add("accept", "text/plain");
-            var response = client.GetAsync("XrayController/GetbyID?id=" + pID.ToString());
+            var response = client.GetAsync("TreatmentController/GetbyID?id=" + pID.ToString());
             response.Wait();
             var data = response.Result;
-            var readTask = data.Content.ReadAsAsync<ServiceResponse<List<Xray>>>();
+            var readTask = data.Content.ReadAsAsync<ServiceResponse<Treatment>>();
             readTask.Wait();
             return readTask.Result;
 
         }
 
-        public ServiceResponse<int> DeleteXray(int ID)
+        public ServiceResponse<Treatment> GetTreatmentAppID(int ID)
         {
             ServicePointManager.ServerCertificateValidationCallback += (o, c, ch, er) => true;
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(server);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Add("accept", "text/plain");
-            var response = client.DeleteAsync("XrayController/DeletebyId?id=" + ID.ToString());
+            var response = client.GetAsync("TreatmentController/GetbyAppID?id=" +ID.ToString());
+            response.Wait();
+            var data = response.Result;
+            var readTask = data.Content.ReadAsAsync<ServiceResponse<Treatment>>();
+            readTask.Wait();
+            return readTask.Result;
+
+        }
+
+        public ServiceResponse<int> UpdateTreatment (Treatment treat)
+        {
+            ServicePointManager.ServerCertificateValidationCallback += (o, c, ch, er) => true;
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(server);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Add("accept", "text/plain");
+            ////{"ID"=0,"appointment": 0,"timage": "string","treatment": "string","cost": 0,"patient": 0}
+            var payload = "{\"id\"="+treat.id+"\"appointment\":" + treat.appointment + "," + "\"timage\":\"" + treat.timage + "\"," + "\"treatment\":\"" + treat.treatment + "\"," + "\"cost\":" + treat.cost + "\"patient\":" + treat.patient + "}";
+            HttpContent C = new StringContent(payload, Encoding.UTF8, "application/json");
+            var response = client.PutAsync("TreatmentController/EditTreatment", C);
             response.Wait();
             var data = response.Result;
             var readTask = data.Content.ReadAsAsync<ServiceResponse<int>>();
             readTask.Wait();
             return readTask.Result;
         }
-
-
 
 
     }
-
-
-
 }
