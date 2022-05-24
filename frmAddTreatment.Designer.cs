@@ -29,7 +29,6 @@ namespace DentistToolClient
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddTreatment));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -53,6 +52,8 @@ namespace DentistToolClient
             this.btnCalculate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtDescription = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -66,10 +67,10 @@ namespace DentistToolClient
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImage = global::DentistToolClient.Properties.Resources.tooth_formula1;
             this.pictureBox1.Location = new System.Drawing.Point(6, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1001, 640);
+            this.pictureBox1.Size = new System.Drawing.Size(1000, 653);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
@@ -109,7 +110,7 @@ namespace DentistToolClient
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.pbRed);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(6, 658);
+            this.groupBox3.Location = new System.Drawing.Point(5, 671);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(1001, 80);
             this.groupBox3.TabIndex = 6;
@@ -252,7 +253,7 @@ namespace DentistToolClient
             this.chkLBTreaments.FormattingEnabled = true;
             this.chkLBTreaments.Location = new System.Drawing.Point(13, 21);
             this.chkLBTreaments.Name = "chkLBTreaments";
-            this.chkLBTreaments.Size = new System.Drawing.Size(343, 242);
+            this.chkLBTreaments.Size = new System.Drawing.Size(343, 174);
             this.chkLBTreaments.TabIndex = 15;
             this.chkLBTreaments.SelectedIndexChanged += new System.EventHandler(this.chkLBTreaments_SelectedIndexChanged);
             // 
@@ -261,16 +262,16 @@ namespace DentistToolClient
             this.groupBox1.Controls.Add(this.btnCalculate);
             this.groupBox1.Controls.Add(this.chkLBTreaments);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(1013, 12);
+            this.groupBox1.Location = new System.Drawing.Point(1015, 91);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(366, 319);
+            this.groupBox1.Size = new System.Drawing.Size(366, 240);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Treatments Applied";
             // 
             // btnCalculate
             // 
-            this.btnCalculate.Location = new System.Drawing.Point(122, 270);
+            this.btnCalculate.Location = new System.Drawing.Point(126, 201);
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(124, 34);
             this.btnCalculate.TabIndex = 16;
@@ -300,11 +301,32 @@ namespace DentistToolClient
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(1013, 12);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(76, 16);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "Description";
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescription.Location = new System.Drawing.Point(1015, 28);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(366, 57);
+            this.txtDescription.TabIndex = 20;
+            this.txtDescription.Text = "";
+            // 
             // frmAddTreatment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1391, 750);
+            this.Controls.Add(this.txtDescription);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.groupBox1);
@@ -326,6 +348,7 @@ namespace DentistToolClient
             this.groupBox6.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -354,5 +377,7 @@ namespace DentistToolClient
         private System.Windows.Forms.ColumnHeader Price;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.RichTextBox txtDescription;
     }
 }

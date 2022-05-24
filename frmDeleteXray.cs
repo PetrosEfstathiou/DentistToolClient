@@ -105,7 +105,7 @@ namespace DentistToolClient
 
         private void lstXrays_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtCreated.Text = SelectedXray[lstXrays.SelectedIndex].xrcreated.ToString("dd/MM/YYYY");
+            txtCreated.Text = SelectedXray[lstXrays.SelectedIndex].xrcreated.ToString("dd/MM/yyyy");
             txtXrayName.Text = SelectedXray[lstXrays.SelectedIndex].xrname;
             MemoryStream picturems = new MemoryStream(SelectedXray[lstXrays.SelectedIndex].xrimage);
             Image returnImage = Image.FromStream(picturems);

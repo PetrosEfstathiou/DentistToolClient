@@ -20,7 +20,7 @@ namespace DentistToolClient
     public partial class frmAddTreatment : Form
     {
         Appointment app = new Appointment();
-        Bitmap bitmap = new Bitmap(1001,640);
+        Bitmap bitmap = new Bitmap(1000,653);
         List<TreatmentCost> TreatmentCosts = new List<TreatmentCost>();
         Graphics g;
         int x = -1;
@@ -152,7 +152,11 @@ namespace DentistToolClient
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (lblTotal.Text != "")
+            if (lblTotal.Text == "")
+                MessageBox.Show("You need to enter Treatments and Calculate Cost before saving!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (txtDescription.Text == "")
+                MessageBox.Show("You need to enter a short Description of the treatment before saving!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
             {
                 Treatment addt = new Treatment();
                 MemoryStream picturems = new MemoryStream();
@@ -163,7 +167,11 @@ namespace DentistToolClient
                 //Set Data
                 addt.timage = imgData;
                 addt.appointment = app.id;
-                addt.treatment = "";
+                //Calculate Name 
+                //
+
+                //
+                addt.treatment = txtDescription.Text;
                 addt.cost = int.Parse(lblTotal.Text);
                 addt.patient = app.patient;
                 //Add Treatment to Database 
@@ -180,8 +188,8 @@ namespace DentistToolClient
                 MessageBox.Show("Treatment saved!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
-            else
-                MessageBox.Show("You need to enter Treatments and Calculate Cost before saving!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                
         }
 
         private void button2_Click(object sender, EventArgs e)

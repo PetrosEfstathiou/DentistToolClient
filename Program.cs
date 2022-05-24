@@ -18,7 +18,7 @@ namespace DentistToolClient
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmCalendar());
+            Application.Run(new frmViewPatient());
         }
     }
 }

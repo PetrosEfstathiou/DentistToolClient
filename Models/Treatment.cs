@@ -13,5 +13,13 @@ namespace DentistToolClient.Models
         public string treatment { get; set; } = "Test";
         public int cost { get; set; }
         public int patient { get; set; }
+        public string ListView
+        {
+            get
+            {
+                return $"({id}) {cost} {treatment} ";
+            }
+
+        }
     }
 }

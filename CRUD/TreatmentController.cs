@@ -31,15 +31,30 @@ namespace DentistToolClient.CRUD
             return readTask.Result;
 
         }
-
-        public ServiceResponse<Treatment> GetTreatment(int pID)
+        //
+        public ServiceResponse<List<Treatment>> GetTreatmentPatientID(int ID)
         {
             ServicePointManager.ServerCertificateValidationCallback += (o, c, ch, er) => true;
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(server);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Add("accept", "text/plain");
-            var response = client.GetAsync("TreatmentController/GetbyID?id=" + pID.ToString());
+            var response = client.GetAsync("TreatmentController/GetbyPatientID?id=" + ID.ToString());
+            response.Wait();
+            var data = response.Result;
+            var readTask = data.Content.ReadAsAsync<ServiceResponse<List<Treatment>>>();
+            readTask.Wait();
+            return readTask.Result;
+
+        }
+        public ServiceResponse<Treatment> GetTreatment(int tID)
+        {
+            ServicePointManager.ServerCertificateValidationCallback += (o, c, ch, er) => true;
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(server);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Add("accept", "text/plain");
+            var response = client.GetAsync("TreatmentController/GetbyID?id=" + tID.ToString());
             response.Wait();
             var data = response.Result;
             var readTask = data.Content.ReadAsAsync<ServiceResponse<Treatment>>();
