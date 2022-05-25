@@ -1,5 +1,9 @@
 ﻿using DentistToolClient.CRUD;
 using DentistToolClient.Models;
+using MailKit.Net.Smtp;
+using MailKit.Security;
+using MimeKit;
+using MimeKit.Text;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,13 +13,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static DentistToolClient.Globals;
 
 namespace DentistToolClient
 {
     public partial class frmDayAppointments : Form
     {
-        
 
+        List<Appointment> sortedapps = new List<Appointment>();
 
 
         public frmDayAppointments()
@@ -49,7 +54,7 @@ namespace DentistToolClient
             var ret = db.GetAppointmentsbyDate(dt, frmCalendar.SD);
             apps.AddRange(ret.Data);
 
-            List<Appointment> sortedapps = apps.OrderBy(d => d.dateTime).ToList();
+            sortedapps = apps.OrderBy(d => d.dateTime).ToList();
             int i = 0;
             TimeSpan opent = new TimeSpan(07, 00, 00);
             if (sortedapps.Count == 0)
@@ -146,6 +151,35 @@ namespace DentistToolClient
             editapp.Show();
         }
 
-
+        private void btneReminder_Click(object sender, EventArgs e)
+        {
+            //https://jasonwatmore.com/post/2021/09/02/net-5-send-an-email-via-smtp-with-mailkit
+            var smtp = new SmtpClient();
+            smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+            smtp.Authenticate(eusername, epass);
+            for (int i = 0; i < sortedapps.Count; i++)
+            {
+                var email = new MimeMessage();
+                email.From.Add(MailboxAddress.Parse(emailadd));
+                //get patient from database
+                PatientController db = new PatientController();
+                var res = db.GetSingle(sortedapps[i].patient);
+                var pat = res.Data;
+                //get doctor from database
+                DoctorController dbd = new DoctorController();
+                var resd = dbd.GetSingle(sortedapps[i].doctor);
+                var doc = resd.Data;
+                email.To.Add(MailboxAddress.Parse(pat.email));
+                email.Subject = "DentistToolClient Appointment Reminder";
+                TimeSpan ts = TimeSpan.FromMinutes(sortedapps[i].mduration);
+                email.Body = new TextPart(TextFormat.Html) { Text = "<p>We would like to remind you about your appointment on " +
+                                                            sortedapps[i].dateTime.DayOfWeek + " " + sortedapps[i].dateTime.ToString("dd/MM/yyyy HH:mm") + "-" + 
+                                                            (sortedapps[i].dateTime + ts).ToString("HH:mm") + " for " + sortedapps[i].AppReason + " with Dr. " + 
+                                                            doc.Surname + " "+ doc.Name + " </p>" };
+                smtp.Send(email);   
+            } 
+            smtp.Disconnect(true);
+            MessageBox.Show("Email Reminders Successfully Sent", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

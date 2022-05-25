@@ -33,6 +33,7 @@ namespace DentistToolClient
             this.btnExit = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.userControlDayView1 = new DentistToolClient.UserControlDayView();
+            this.btneReminder = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -49,7 +50,7 @@ namespace DentistToolClient
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(514, 178);
+            this.btnExit.Location = new System.Drawing.Point(514, 238);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(140, 38);
             this.btnExit.TabIndex = 2;
@@ -76,11 +77,23 @@ namespace DentistToolClient
             this.userControlDayView1.TabIndex = 0;
             this.userControlDayView1.Load += new System.EventHandler(this.userControlDayView1_Load);
             // 
+            // btneReminder
+            // 
+            this.btneReminder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btneReminder.Location = new System.Drawing.Point(514, 178);
+            this.btneReminder.Name = "btneReminder";
+            this.btneReminder.Size = new System.Drawing.Size(140, 40);
+            this.btneReminder.TabIndex = 4;
+            this.btneReminder.Text = "Reminder via email";
+            this.btneReminder.UseVisualStyleBackColor = true;
+            this.btneReminder.Click += new System.EventHandler(this.btneReminder_Click);
+            // 
             // frmDayAppointments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(691, 642);
+            this.Controls.Add(this.btneReminder);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnAdd);
@@ -100,5 +113,6 @@ namespace DentistToolClient
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btneReminder;
     }
 }
