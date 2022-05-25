@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.Windows;
 
 namespace DentistToolClient.CRUD
 {
@@ -20,6 +21,15 @@ namespace DentistToolClient.CRUD
             client.BaseAddress = new Uri(server);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Add("accept", "text/plain");
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", JWTtoken);
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show("Unauthorized user. Closing Application", "Fatal Error", MessageBoxButton.OK, MessageBoxImage.Hand);
+                Environment.Exit(0);
+            }
             var response = client.GetAsync("AppointmentController/GetAll");
             response.Wait();
             var data = response.Result;
@@ -35,6 +45,15 @@ namespace DentistToolClient.CRUD
             client.BaseAddress = new Uri(server);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Add("accept", "text/plain");
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", JWTtoken);
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show("Unauthorized user. Closing Application", "Fatal Error", MessageBoxButton.OK, MessageBoxImage.Hand);
+                Environment.Exit(0);
+            }
             var response = client.GetAsync("AppointmentController/GetbyID?id=" + id.ToString());
             response.Wait();
             var data = response.Result;
@@ -50,6 +69,15 @@ namespace DentistToolClient.CRUD
             client.BaseAddress = new Uri(server);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Add("accept", "text/plain");
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", JWTtoken);
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show("Unauthorized user. Closing Application", "Fatal Error", MessageBoxButton.OK, MessageBoxImage.Hand);
+                Environment.Exit(0);
+            }
             var response = client.GetAsync("AppointmentController/GetbyAppID?id=" + id.ToString());
             response.Wait();
             var data = response.Result;
@@ -65,6 +93,15 @@ namespace DentistToolClient.CRUD
             client.BaseAddress = new Uri(server);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Add("accept", "text/plain");
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", JWTtoken);
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show("Unauthorized user. Closing Application", "Fatal Error", MessageBoxButton.OK, MessageBoxImage.Hand);
+                Environment.Exit(0);
+            }
             var response = client.GetAsync("AppointmentController/GetbyDate?date="+date+"&doctor="+doc.ToString());
             response.Wait();
             var data = response.Result;
@@ -81,6 +118,15 @@ namespace DentistToolClient.CRUD
             client.BaseAddress = new Uri(server);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Add("accept", "text/plain");
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", JWTtoken);
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show("Unauthorized user. Closing Application", "Fatal Error", MessageBoxButton.OK, MessageBoxImage.Hand);
+                Environment.Exit(0);
+            }
             var jsonSettings = new JsonSerializerSettings();
             var payload = JsonConvert.SerializeObject(CAppointment);
             HttpContent C = new StringContent(payload, Encoding.UTF8, "application/json");
@@ -98,6 +144,15 @@ namespace DentistToolClient.CRUD
             client.BaseAddress = new Uri(server);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Add("accept", "text/plain");
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", JWTtoken);
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show("Unauthorized user. Closing Application", "Fatal Error", MessageBoxButton.OK, MessageBoxImage.Hand);
+                Environment.Exit(0);
+            }
             var jsonSettings = new JsonSerializerSettings();
             var payload = JsonConvert.SerializeObject(newAppointment);
             HttpContent C = new StringContent(payload, Encoding.UTF8, "application/json");
@@ -115,6 +170,15 @@ namespace DentistToolClient.CRUD
             client.BaseAddress = new Uri(server);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Add("accept", "text/plain");
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", JWTtoken);
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show("Unauthorized user. Closing Application", "Fatal Error", MessageBoxButton.OK, MessageBoxImage.Hand);
+                Environment.Exit(0);
+            }
             var jsonSettings = new JsonSerializerSettings();
             var payload = JsonConvert.SerializeObject(updatedAppointment);
             HttpContent C = new StringContent(payload, Encoding.UTF8, "application/json");

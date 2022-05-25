@@ -103,6 +103,12 @@
     <Compile Include="frmAddTreatment.Designer.cs">
       <DependentUpon>frmAddTreatment.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmComposite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmComposite.Designer.cs">
+      <DependentUpon>frmComposite.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDeleteXray.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,12 +151,6 @@
     <Compile Include="frmAddUser.Designer.cs">
       <DependentUpon>frmAddUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCancelDayAppointment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmCancelDayAppointment.Designer.cs">
-      <DependentUpon>frmCancelDayAppointment.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmEditDayAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +162,12 @@
     </Compile>
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainMenu.Designer.cs">
+      <DependentUpon>frmMainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="frmViewFormula.cs">
       <SubType>Form</SubType>
@@ -241,6 +247,9 @@
     <EmbeddedResource Include="frmAddTreatment.resx">
       <DependentUpon>frmAddTreatment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmComposite.resx">
+      <DependentUpon>frmComposite.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDeleteXray.resx">
       <DependentUpon>frmDeleteXray.cs</DependentUpon>
     </EmbeddedResource>
@@ -259,9 +268,6 @@
     <EmbeddedResource Include="frmAddUser.resx">
       <DependentUpon>frmAddUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCancelDayAppointment.resx">
-      <DependentUpon>frmCancelDayAppointment.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmDayAppointments.resx">
       <DependentUpon>frmDayAppointments.cs</DependentUpon>
     </EmbeddedResource>
@@ -270,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMainMenu.resx">
+      <DependentUpon>frmMainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmViewFormula.resx">
       <DependentUpon>frmViewFormula.cs</DependentUpon>
@@ -327,6 +336,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\preview tooth formula.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />

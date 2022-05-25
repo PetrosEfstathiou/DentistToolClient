@@ -26,6 +26,7 @@ namespace DentistToolClient
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            SelectedDoctor.Clear();
             DoctorController dbdoc = new DoctorController();
             var retdoc = dbdoc.GetAll();
             SelectedDoctor.AddRange(retdoc.Data);
@@ -121,6 +122,13 @@ namespace DentistToolClient
         {
             displayDays();
             update(month, year);
+        }
+
+        private void btnMainMenu_Click(object sender, EventArgs e)
+        {
+            frmMainMenu mm = new frmMainMenu();
+            mm.Show();
+            this.Close();
         }
 
         private void cmbDoctor_SelectedIndexChanged(object sender, EventArgs e)

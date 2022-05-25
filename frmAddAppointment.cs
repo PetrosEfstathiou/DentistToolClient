@@ -18,7 +18,6 @@ namespace DentistToolClient
     {
         
         List<Patient> SelectedPatient = new List<Patient>();
-        List<Doctor> SelectedDoctor = new List<Doctor>();
         public frmAddAppointment()
         {
             InitializeComponent();
@@ -26,7 +25,7 @@ namespace DentistToolClient
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (IsNumeric(txtSearch.Text))
+            if (IsNumeric(txtSearch.Text) && txtSearch.Text != "")
             {
                 if (rdbID.Checked)
                 {

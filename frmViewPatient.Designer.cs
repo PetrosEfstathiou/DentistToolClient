@@ -75,30 +75,32 @@ namespace DentistToolClient
             this.lstXrays = new System.Windows.Forms.ListBox();
             this.gbX = new System.Windows.Forms.GroupBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtCreated = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.txtXrayName = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.gbT = new System.Windows.Forms.GroupBox();
-            this.lstTreatments = new System.Windows.Forms.ListBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.txtTID = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.txtTreatment = new System.Windows.Forms.RichTextBox();
-            this.txtAppointment = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
+            this.btnComposite = new System.Windows.Forms.Button();
             this.txtCost = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
+            this.txtAppointment = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.txtTreatment = new System.Windows.Forms.RichTextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtTID = new System.Windows.Forms.TextBox();
+            this.lstTreatments = new System.Windows.Forms.ListBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnMainMenu = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gbA.SuspendLayout();
             this.gbX.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lstPatients
@@ -638,9 +640,18 @@ namespace DentistToolClient
             this.label16.TabIndex = 22;
             this.label16.Text = "Preview (doubleclick to view Xray)";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(14, 294);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(304, 194);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 21;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
+            // 
             // txtCreated
             // 
-            this.txtCreated.Enabled = false;
             this.txtCreated.Location = new System.Drawing.Point(97, 232);
             this.txtCreated.Name = "txtCreated";
             this.txtCreated.Size = new System.Drawing.Size(221, 22);
@@ -657,7 +668,6 @@ namespace DentistToolClient
             // 
             // txtXrayName
             // 
-            this.txtXrayName.Enabled = false;
             this.txtXrayName.Location = new System.Drawing.Point(97, 198);
             this.txtXrayName.Name = "txtXrayName";
             this.txtXrayName.Size = new System.Drawing.Size(221, 22);
@@ -674,6 +684,7 @@ namespace DentistToolClient
             // 
             // gbT
             // 
+            this.gbT.Controls.Add(this.btnComposite);
             this.gbT.Controls.Add(this.txtCost);
             this.gbT.Controls.Add(this.label24);
             this.gbT.Controls.Add(this.txtAppointment);
@@ -693,75 +704,16 @@ namespace DentistToolClient
             this.gbT.TabStop = false;
             this.gbT.Text = "Treatments";
             // 
-            // lstTreatments
+            // btnComposite
             // 
-            this.lstTreatments.FormattingEnabled = true;
-            this.lstTreatments.ItemHeight = 16;
-            this.lstTreatments.Location = new System.Drawing.Point(6, 21);
-            this.lstTreatments.Name = "lstTreatments";
-            this.lstTreatments.Size = new System.Drawing.Size(333, 164);
-            this.lstTreatments.TabIndex = 23;
-            this.lstTreatments.SelectedIndexChanged += new System.EventHandler(this.lstTreatments_SelectedIndexChanged);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(8, 400);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(227, 16);
-            this.label20.TabIndex = 24;
-            this.label20.Text = "Preview (doubleclick to view formula)";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(8, 198);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(21, 16);
-            this.label21.TabIndex = 32;
-            this.label21.Text = "ID";
-            // 
-            // txtTID
-            // 
-            this.txtTID.Location = new System.Drawing.Point(97, 195);
-            this.txtTID.Name = "txtTID";
-            this.txtTID.Size = new System.Drawing.Size(50, 22);
-            this.txtTID.TabIndex = 31;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(8, 288);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(69, 16);
-            this.label22.TabIndex = 23;
-            this.label22.Text = "Treatment";
-            // 
-            // txtTreatment
-            // 
-            this.txtTreatment.Location = new System.Drawing.Point(7, 307);
-            this.txtTreatment.Name = "txtTreatment";
-            this.txtTreatment.Size = new System.Drawing.Size(333, 82);
-            this.txtTreatment.TabIndex = 33;
-            this.txtTreatment.Text = "";
-            // 
-            // txtAppointment
-            // 
-            this.txtAppointment.Location = new System.Drawing.Point(97, 229);
-            this.txtAppointment.Name = "txtAppointment";
-            this.txtAppointment.Size = new System.Drawing.Size(224, 22);
-            this.txtAppointment.TabIndex = 32;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(8, 232);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(83, 16);
-            this.label23.TabIndex = 31;
-            this.label23.Text = "Appointment";
+            this.btnComposite.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComposite.Location = new System.Drawing.Point(126, 605);
+            this.btnComposite.Name = "btnComposite";
+            this.btnComposite.Size = new System.Drawing.Size(129, 37);
+            this.btnComposite.TabIndex = 24;
+            this.btnComposite.Text = "View Composite";
+            this.btnComposite.UseVisualStyleBackColor = true;
+            this.btnComposite.Click += new System.EventHandler(this.btnComposite_Click);
             // 
             // txtCost
             // 
@@ -780,9 +732,79 @@ namespace DentistToolClient
             this.label24.TabIndex = 34;
             this.label24.Text = "Cost";
             // 
+            // txtAppointment
+            // 
+            this.txtAppointment.Location = new System.Drawing.Point(97, 229);
+            this.txtAppointment.Name = "txtAppointment";
+            this.txtAppointment.Size = new System.Drawing.Size(224, 22);
+            this.txtAppointment.TabIndex = 32;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(8, 232);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(83, 16);
+            this.label23.TabIndex = 31;
+            this.label23.Text = "Appointment";
+            // 
+            // txtTreatment
+            // 
+            this.txtTreatment.Location = new System.Drawing.Point(7, 307);
+            this.txtTreatment.Name = "txtTreatment";
+            this.txtTreatment.Size = new System.Drawing.Size(333, 53);
+            this.txtTreatment.TabIndex = 33;
+            this.txtTreatment.Text = "";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(8, 288);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(69, 16);
+            this.label22.TabIndex = 23;
+            this.label22.Text = "Treatment";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(8, 198);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(21, 16);
+            this.label21.TabIndex = 32;
+            this.label21.Text = "ID";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(8, 363);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(227, 16);
+            this.label20.TabIndex = 24;
+            this.label20.Text = "Preview (doubleclick to view formula)";
+            // 
+            // txtTID
+            // 
+            this.txtTID.Location = new System.Drawing.Point(97, 195);
+            this.txtTID.Name = "txtTID";
+            this.txtTID.Size = new System.Drawing.Size(50, 22);
+            this.txtTID.TabIndex = 31;
+            // 
+            // lstTreatments
+            // 
+            this.lstTreatments.FormattingEnabled = true;
+            this.lstTreatments.ItemHeight = 16;
+            this.lstTreatments.Location = new System.Drawing.Point(6, 21);
+            this.lstTreatments.Name = "lstTreatments";
+            this.lstTreatments.Size = new System.Drawing.Size(333, 164);
+            this.lstTreatments.TabIndex = 23;
+            this.lstTreatments.SelectedIndexChanged += new System.EventHandler(this.lstTreatments_SelectedIndexChanged);
+            // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(6, 419);
+            this.pictureBox2.Location = new System.Drawing.Point(6, 382);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(333, 217);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -791,27 +813,30 @@ namespace DentistToolClient
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             this.pictureBox2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseDoubleClick);
             // 
-            // pictureBox1
+            // btnMainMenu
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(14, 294);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(304, 194);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 21;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
+            this.btnMainMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMainMenu.Location = new System.Drawing.Point(745, 562);
+            this.btnMainMenu.Name = "btnMainMenu";
+            this.btnMainMenu.Size = new System.Drawing.Size(129, 37);
+            this.btnMainMenu.TabIndex = 23;
+            this.btnMainMenu.Text = "Back to Main Menu";
+            this.btnMainMenu.UseVisualStyleBackColor = true;
+            this.btnMainMenu.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // frmViewPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1513, 656);
+            this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.gbT);
             this.Controls.Add(this.gbX);
             this.Controls.Add(this.gbA);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmViewPatient";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "View Patient History";
             this.Load += new System.EventHandler(this.frmViewPatient_Load);
             this.groupBox2.ResumeLayout(false);
@@ -822,10 +847,10 @@ namespace DentistToolClient
             this.gbA.PerformLayout();
             this.gbX.ResumeLayout(false);
             this.gbX.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gbT.ResumeLayout(false);
             this.gbT.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -895,5 +920,7 @@ namespace DentistToolClient
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtTID;
+        private System.Windows.Forms.Button btnComposite;
+        private System.Windows.Forms.Button btnMainMenu;
     }
 }

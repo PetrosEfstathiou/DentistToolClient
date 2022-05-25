@@ -18,7 +18,8 @@ namespace DentistToolClient
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmViewPatient());
+            Application.Run(new frmLogin());
+            //Application.Run(new frmAddUser());
         }
     }
 }

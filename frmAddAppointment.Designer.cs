@@ -284,6 +284,7 @@ namespace DentistToolClient
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmAddAppointment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddAppointment";
             this.Load += new System.EventHandler(this.frmAddAppointment_Load);
             this.groupBox1.ResumeLayout(false);

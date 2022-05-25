@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using static DentistToolClient.Globals;
 
 namespace DentistToolClient.CRUD
@@ -21,6 +22,15 @@ namespace DentistToolClient.CRUD
             client.BaseAddress = new Uri(server);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Add("accept", "text/plain");
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", JWTtoken);
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show("Unauthorized user. Closing Application", "Fatal Error", MessageBoxButton.OK, MessageBoxImage.Hand);
+                Environment.Exit(0);
+            }
             //{"patient": 0,"xrname": "string","xrimage": "string","xrcreated": "2022-05-16T16:21:34.764Z"}
             var jsonSettings = new JsonSerializerSettings();
             var payload = JsonConvert.SerializeObject(xray);
@@ -42,6 +52,15 @@ namespace DentistToolClient.CRUD
             client.BaseAddress = new Uri(server);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Add("accept", "text/plain");
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", JWTtoken);
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show("Unauthorized user. Closing Application", "Fatal Error", MessageBoxButton.OK, MessageBoxImage.Hand);
+                Environment.Exit(0);
+            }
             var response = client.GetAsync("XrayController/GetbyID?id=" + pID.ToString());
             response.Wait();
             var data = response.Result;
@@ -58,6 +77,15 @@ namespace DentistToolClient.CRUD
             client.BaseAddress = new Uri(server);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Add("accept", "text/plain");
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", JWTtoken);
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show("Unauthorized user. Closing Application", "Fatal Error", MessageBoxButton.OK, MessageBoxImage.Hand);
+                Environment.Exit(0);
+            }
             var response = client.DeleteAsync("XrayController/DeletebyId?id=" + ID.ToString());
             response.Wait();
             var data = response.Result;

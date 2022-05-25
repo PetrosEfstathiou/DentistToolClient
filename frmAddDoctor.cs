@@ -97,5 +97,12 @@ namespace DentistToolClient
         {
 
         }
+
+        private void btnMainMenu_Click(object sender, EventArgs e)
+        {
+            frmMainMenu mm = new frmMainMenu();
+            mm.Show();
+            this.Hide();
+        }
     }
 }

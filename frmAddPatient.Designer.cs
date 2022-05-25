@@ -48,7 +48,7 @@ namespace DentistToolClient
             this.txtSurname = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnMainMenu = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -247,26 +247,27 @@ namespace DentistToolClient
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnCancel
+            // btnMainMenu
             // 
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(262, 540);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(120, 33);
-            this.btnCancel.TabIndex = 10;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnMainMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMainMenu.Location = new System.Drawing.Point(265, 539);
+            this.btnMainMenu.Name = "btnMainMenu";
+            this.btnMainMenu.Size = new System.Drawing.Size(154, 34);
+            this.btnMainMenu.TabIndex = 24;
+            this.btnMainMenu.Text = "Back to Main Menu";
+            this.btnMainMenu.UseVisualStyleBackColor = true;
+            this.btnMainMenu.Click += new System.EventHandler(this.btnMainMenu_Click);
             // 
             // frmAddPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(495, 600);
-            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmAddPatient";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Patient";
             this.Load += new System.EventHandler(this.frmAddPatient_Load);
             this.groupBox1.ResumeLayout(false);
@@ -294,8 +295,8 @@ namespace DentistToolClient
         private System.Windows.Forms.TextBox txtSurname;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblDoB;
         private System.Windows.Forms.ComboBox cmbBloodtype;
+        private System.Windows.Forms.Button btnMainMenu;
     }
 }

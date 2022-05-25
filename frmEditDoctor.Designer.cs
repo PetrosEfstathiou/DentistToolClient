@@ -226,11 +226,11 @@ namespace DentistToolClient
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(241, 484);
+            this.btnCancel.Location = new System.Drawing.Point(252, 484);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(120, 33);
+            this.btnCancel.Size = new System.Drawing.Size(155, 33);
             this.btnCancel.TabIndex = 14;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Back to Main Menu";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -255,6 +255,7 @@ namespace DentistToolClient
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Name = "frmEditDoctor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Doctor";
             this.Load += new System.EventHandler(this.frmEditDoctor_Load);
             this.groupBox2.ResumeLayout(false);

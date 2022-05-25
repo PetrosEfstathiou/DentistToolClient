@@ -17,6 +17,7 @@ namespace DentistToolClient
     {
         public static MemoryStream SXray = new MemoryStream();
         public static MemoryStream STreatment = new MemoryStream();
+        public static List<MemoryStream> composite = new List<MemoryStream>();
         List <Patient> SelectedPatient = new List<Patient>();
         List<Appointment> sortedapps = new List<Appointment>();
         List<Xray> SelectedXray = new List<Xray>();
@@ -93,12 +94,12 @@ namespace DentistToolClient
             lstTreatments.DataSource = null;
             lstTreatments.Items.Clear();
             SelectedTreatment.Clear();
-            gbT.Enabled = false;
+
             TreatmentController tdb = new TreatmentController();
             var rest = tdb.GetTreatmentPatientID(SelectedPatient[lstPatients.SelectedIndex].Id);
-            if (res.Data.Count == 0)
+            if (rest.Success==false)
             {
-                
+                gbT.Enabled = false;
                 lstTreatments.Items.Add("No Treatments found");
             }
             else
@@ -109,14 +110,14 @@ namespace DentistToolClient
                 lstTreatments.DisplayMember = "ListView";
                 gbT.Enabled = true;
             }
-            //Load Treatments
+
 
 
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (IsNumeric(txtSearch.Text))
+            if (IsNumeric(txtSearch.Text) && txtSearch.Text != "")
             {
                 if (rdbID.Checked)
                 {
@@ -236,6 +237,21 @@ namespace DentistToolClient
         {
             frmViewFormula viewf = new frmViewFormula();
             viewf.Show();
+        }
+
+        private void btnComposite_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i< SelectedTreatment.Count;i++)
+            composite.Add(new MemoryStream(SelectedTreatment[i].timage));
+            frmComposite viewComp = new frmComposite();
+            viewComp.Show();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            frmMainMenu mm = new frmMainMenu();
+            mm.Show();
+            this.Hide();
         }
     }
 }

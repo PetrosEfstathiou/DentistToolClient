@@ -128,7 +128,9 @@ namespace DentistToolClient
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            frmMainMenu mm = new frmMainMenu();
+            mm.Show();
+            this.Hide();
         }
     }
 }

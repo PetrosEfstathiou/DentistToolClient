@@ -91,7 +91,7 @@ namespace DentistToolClient
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (IsNumeric(txtSearch.Text))
+            if (IsNumeric(txtSearch.Text) && txtSearch.Text != "")
             {
                 if (rdbID.Checked)
                 {
@@ -198,6 +198,13 @@ namespace DentistToolClient
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnMainMenu_Click(object sender, EventArgs e)
+        {
+            frmMainMenu mm = new frmMainMenu();
+            mm.Show();
+            this.Hide();
         }
     }
 }

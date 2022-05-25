@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using static DentistToolClient.Globals;
 
 namespace DentistToolClient.CRUD
@@ -20,6 +21,15 @@ namespace DentistToolClient.CRUD
             client.BaseAddress = new Uri(server);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Add("accept", "text/plain");
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", JWTtoken);
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show("Unauthorized user. Closing Application", "Fatal Error", MessageBoxButton.OK, MessageBoxImage.Hand);
+                Environment.Exit(0);
+            }
             var response = client.GetAsync("TreatmentCostController/GetAll");
             response.Wait();
             var data = response.Result;
@@ -35,6 +45,15 @@ namespace DentistToolClient.CRUD
             client.BaseAddress = new Uri(server);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Add("accept", "text/plain");
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", JWTtoken);
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show("Unauthorized user. Closing Application", "Fatal Error", MessageBoxButton.OK, MessageBoxImage.Hand);
+                Environment.Exit(0);
+            }
             var jsonSettings = new JsonSerializerSettings();
             var payload = JsonConvert.SerializeObject(newTC);
             HttpContent C = new StringContent(payload, Encoding.UTF8, "application/json");
@@ -53,6 +72,15 @@ namespace DentistToolClient.CRUD
             client.BaseAddress = new Uri(server);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Add("accept", "text/plain");
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", JWTtoken);
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show("Unauthorized user. Closing Application", "Fatal Error", MessageBoxButton.OK, MessageBoxImage.Hand);
+                Environment.Exit(0);
+            }
             var response = client.DeleteAsync("TreatmentCostController/DeleteTreatmentCostDeletebyId?id="+id.ToString());
             response.Wait();
             var data = response.Result;

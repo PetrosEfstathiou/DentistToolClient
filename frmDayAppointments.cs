@@ -25,7 +25,8 @@ namespace DentistToolClient
 
         private void frmDayAppointments_Load(object sender, EventArgs e)
         {
-        
+            DateTime dt = new DateTime(frmCalendar.year, frmCalendar.month, UserControlDays.static_day);
+            this.Text = "Appointments for " + dt.DayOfWeek.ToString() + " " + dt.ToString("dd/MM/yyyy");
         }
 
         private void userControlDayView1_Load(object sender, EventArgs e)
@@ -145,10 +146,6 @@ namespace DentistToolClient
             editapp.Show();
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            frmCancelDayAppointment cancelapp = new frmCancelDayAppointment();
-            cancelapp.Show();
-        }
+
     }
 }

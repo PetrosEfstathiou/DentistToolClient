@@ -230,6 +230,7 @@ namespace DentistToolClient
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmEditDayAppointment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Appointment";
             this.Load += new System.EventHandler(this.frmEditAppointment_Load);
             this.groupBox1.ResumeLayout(false);

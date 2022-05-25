@@ -37,13 +37,13 @@ namespace DentistToolClient
             this.rdbID = new System.Windows.Forms.RadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblpath = new System.Windows.Forms.Label();
             this.txtXrayName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSelect = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnAddXray = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.lblpath = new System.Windows.Forms.Label();
+            this.btnMainMenu = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -143,6 +143,14 @@ namespace DentistToolClient
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Xray Details";
             // 
+            // lblpath
+            // 
+            this.lblpath.AutoSize = true;
+            this.lblpath.Location = new System.Drawing.Point(19, 106);
+            this.lblpath.Name = "lblpath";
+            this.lblpath.Size = new System.Drawing.Size(0, 16);
+            this.lblpath.TabIndex = 19;
+            // 
             // txtXrayName
             // 
             this.txtXrayName.Location = new System.Drawing.Point(100, 25);
@@ -191,36 +199,29 @@ namespace DentistToolClient
             this.btnAddXray.UseVisualStyleBackColor = true;
             this.btnAddXray.Click += new System.EventHandler(this.btnAddXray_Click);
             // 
-            // btnCancel
+            // btnMainMenu
             // 
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(270, 640);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(112, 33);
-            this.btnCancel.TabIndex = 21;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // lblpath
-            // 
-            this.lblpath.AutoSize = true;
-            this.lblpath.Location = new System.Drawing.Point(19, 106);
-            this.lblpath.Name = "lblpath";
-            this.lblpath.Size = new System.Drawing.Size(0, 16);
-            this.lblpath.TabIndex = 19;
+            this.btnMainMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMainMenu.Location = new System.Drawing.Point(260, 639);
+            this.btnMainMenu.Name = "btnMainMenu";
+            this.btnMainMenu.Size = new System.Drawing.Size(154, 34);
+            this.btnMainMenu.TabIndex = 24;
+            this.btnMainMenu.Text = "Back to Main Menu";
+            this.btnMainMenu.UseVisualStyleBackColor = true;
+            this.btnMainMenu.Click += new System.EventHandler(this.btnMainMenu_Click);
             // 
             // frmAddXray
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(485, 741);
-            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.btnAddXray);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Name = "frmAddXray";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Xray to Patient";
             this.Load += new System.EventHandler(this.frmAddXray_Load);
             this.groupBox2.ResumeLayout(false);
@@ -248,7 +249,7 @@ namespace DentistToolClient
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnAddXray;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblpath;
+        private System.Windows.Forms.Button btnMainMenu;
     }
 }

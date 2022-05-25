@@ -144,6 +144,7 @@ namespace DentistToolClient
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmAddUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register User";
             this.Load += new System.EventHandler(this.frmAddUser_Load);
             this.ResumeLayout(false);

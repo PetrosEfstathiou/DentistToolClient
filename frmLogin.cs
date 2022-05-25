@@ -37,8 +37,10 @@ namespace DentistToolClient
                 var response = db.Login(reg);
                 if (response.Success)
                 {
-                    JWTtoken = response.Data;
-                    this.Close();
+                    JWTtoken = "bearer " + response.Data;
+                    frmMainMenu mm = new frmMainMenu();
+                    mm.Show();
+                   this.Hide();
                 }
                 else
                 {

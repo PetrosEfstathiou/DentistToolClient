@@ -30,6 +30,10 @@ namespace DentistToolClient
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtCreated = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtXrayName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -38,17 +42,13 @@ namespace DentistToolClient
             this.btnSearch = new System.Windows.Forms.Button();
             this.rdbTel = new System.Windows.Forms.RadioButton();
             this.rdbID = new System.Windows.Forms.RadioButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtCreated = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lstXrays = new System.Windows.Forms.ListBox();
+            this.btnMainMenu = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,6 +67,41 @@ namespace DentistToolClient
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Xray Details";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 91);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 16);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Preview";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(17, 125);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(425, 267);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 21;
+            this.pictureBox1.TabStop = false;
+            // 
+            // txtCreated
+            // 
+            this.txtCreated.Enabled = false;
+            this.txtCreated.Location = new System.Drawing.Point(100, 55);
+            this.txtCreated.Name = "txtCreated";
+            this.txtCreated.Size = new System.Drawing.Size(221, 22);
+            this.txtCreated.TabIndex = 20;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 58);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 16);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Created";
             // 
             // txtXrayName
             // 
@@ -155,41 +190,6 @@ namespace DentistToolClient
             this.rdbID.UseVisualStyleBackColor = true;
             this.rdbID.CheckedChanged += new System.EventHandler(this.rdbID_CheckedChanged);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 58);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 16);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Created";
-            // 
-            // txtCreated
-            // 
-            this.txtCreated.Enabled = false;
-            this.txtCreated.Location = new System.Drawing.Point(100, 55);
-            this.txtCreated.Name = "txtCreated";
-            this.txtCreated.Size = new System.Drawing.Size(221, 22);
-            this.txtCreated.TabIndex = 20;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(17, 125);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(425, 267);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 21;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 91);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 16);
-            this.label3.TabIndex = 22;
-            this.label3.Text = "Preview";
-            // 
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -197,20 +197,9 @@ namespace DentistToolClient
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(108, 31);
             this.btnDelete.TabIndex = 18;
-            this.btnDelete.Text = "DeleteXray";
+            this.btnDelete.Text = "Delete Xray";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(286, 704);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(90, 31);
-            this.btnCancel.TabIndex = 19;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // groupBox3
             // 
@@ -233,23 +222,35 @@ namespace DentistToolClient
             this.lstXrays.TabIndex = 0;
             this.lstXrays.SelectedIndexChanged += new System.EventHandler(this.lstXrays_SelectedIndexChanged);
             // 
+            // btnMainMenu
+            // 
+            this.btnMainMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMainMenu.Location = new System.Drawing.Point(256, 702);
+            this.btnMainMenu.Name = "btnMainMenu";
+            this.btnMainMenu.Size = new System.Drawing.Size(154, 34);
+            this.btnMainMenu.TabIndex = 24;
+            this.btnMainMenu.Text = "Back to Main Menu";
+            this.btnMainMenu.UseVisualStyleBackColor = true;
+            this.btnMainMenu.Click += new System.EventHandler(this.btnMainMenu_Click);
+            // 
             // frmDeleteXray
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(488, 744);
+            this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Name = "frmDeleteXray";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Delete Xray";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -271,8 +272,8 @@ namespace DentistToolClient
         private System.Windows.Forms.RadioButton rdbTel;
         private System.Windows.Forms.RadioButton rdbID;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ListBox lstXrays;
+        private System.Windows.Forms.Button btnMainMenu;
     }
 }

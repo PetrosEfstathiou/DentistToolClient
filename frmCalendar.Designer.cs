@@ -41,6 +41,7 @@ namespace DentistToolClient
             this.btnPrevious = new System.Windows.Forms.Button();
             this.lblmonthyear = new System.Windows.Forms.Label();
             this.cmbDoctor = new System.Windows.Forms.ComboBox();
+            this.btnMainMenu = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // flpDaysContainer
@@ -122,9 +123,10 @@ namespace DentistToolClient
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(950, 630);
+            this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNext.Location = new System.Drawing.Point(1043, 630);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(199, 34);
+            this.btnNext.Size = new System.Drawing.Size(135, 34);
             this.btnNext.TabIndex = 12;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
@@ -132,9 +134,10 @@ namespace DentistToolClient
             // 
             // btnPrevious
             // 
-            this.btnPrevious.Location = new System.Drawing.Point(745, 630);
+            this.btnPrevious.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrevious.Location = new System.Drawing.Point(883, 630);
             this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(199, 34);
+            this.btnPrevious.Size = new System.Drawing.Size(154, 34);
             this.btnPrevious.TabIndex = 11;
             this.btnPrevious.Text = "Previous";
             this.btnPrevious.UseVisualStyleBackColor = true;
@@ -161,11 +164,23 @@ namespace DentistToolClient
             this.cmbDoctor.TabIndex = 22;
             this.cmbDoctor.SelectedIndexChanged += new System.EventHandler(this.cmbDoctor_SelectedIndexChanged);
             // 
+            // btnMainMenu
+            // 
+            this.btnMainMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMainMenu.Location = new System.Drawing.Point(656, 630);
+            this.btnMainMenu.Name = "btnMainMenu";
+            this.btnMainMenu.Size = new System.Drawing.Size(154, 34);
+            this.btnMainMenu.TabIndex = 23;
+            this.btnMainMenu.Text = "Back to Main Menu";
+            this.btnMainMenu.UseVisualStyleBackColor = true;
+            this.btnMainMenu.Click += new System.EventHandler(this.btnMainMenu_Click);
+            // 
             // frmCalendar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1197, 679);
+            this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.cmbDoctor);
             this.Controls.Add(this.lblmonthyear);
             this.Controls.Add(this.flpDaysContainer);
@@ -179,7 +194,8 @@ namespace DentistToolClient
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnPrevious);
             this.Name = "frmCalendar";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Calendar";
             this.Activated += new System.EventHandler(this.frmCalendar_Activated);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -201,5 +217,6 @@ namespace DentistToolClient
         private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.Label lblmonthyear;
         private System.Windows.Forms.ComboBox cmbDoctor;
+        private System.Windows.Forms.Button btnMainMenu;
     }
 }

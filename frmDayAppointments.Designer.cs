@@ -53,7 +53,7 @@ namespace DentistToolClient
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(140, 38);
             this.btnExit.TabIndex = 2;
-            this.btnExit.Text = "Exit";
+            this.btnExit.Text = "Close";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 

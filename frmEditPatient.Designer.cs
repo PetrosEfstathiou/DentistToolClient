@@ -48,7 +48,6 @@ namespace DentistToolClient
             this.txtSurname = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lstPatients = new System.Windows.Forms.ListBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -56,6 +55,7 @@ namespace DentistToolClient
             this.rdbTel = new System.Windows.Forms.RadioButton();
             this.rdbID = new System.Windows.Forms.RadioButton();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnMainMenu = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -256,16 +256,6 @@ namespace DentistToolClient
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(334, 664);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(120, 33);
-            this.btnCancel.TabIndex = 10;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lstPatients);
@@ -339,7 +329,7 @@ namespace DentistToolClient
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(180, 662);
+            this.btnDelete.Location = new System.Drawing.Point(169, 664);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(120, 33);
             this.btnDelete.TabIndex = 12;
@@ -347,17 +337,29 @@ namespace DentistToolClient
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // btnMainMenu
+            // 
+            this.btnMainMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMainMenu.Location = new System.Drawing.Point(315, 664);
+            this.btnMainMenu.Name = "btnMainMenu";
+            this.btnMainMenu.Size = new System.Drawing.Size(154, 34);
+            this.btnMainMenu.TabIndex = 24;
+            this.btnMainMenu.Text = "Back to Main Menu";
+            this.btnMainMenu.UseVisualStyleBackColor = true;
+            this.btnMainMenu.Click += new System.EventHandler(this.btnMainMenu_Click);
+            // 
             // frmEditPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(481, 707);
+            this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmEditPatient";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Patient";
             this.Load += new System.EventHandler(this.frmEditPatient_Load);
             this.groupBox1.ResumeLayout(false);
@@ -387,7 +389,6 @@ namespace DentistToolClient
         private System.Windows.Forms.TextBox txtSurname;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblDoB;
         private System.Windows.Forms.ComboBox cmbBloodtype;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -397,5 +398,6 @@ namespace DentistToolClient
         private System.Windows.Forms.RadioButton rdbTel;
         private System.Windows.Forms.RadioButton rdbID;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnMainMenu;
     }
 }
