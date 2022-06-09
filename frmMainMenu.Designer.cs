@@ -182,7 +182,7 @@ namespace DentistToolClient
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DentistTool Client";
+            this.Text = "Dental Clinic Management Software";
             this.Load += new System.EventHandler(this.frmMainMenu_Load);
             this.gbPatient.ResumeLayout(false);
             this.gbDoctor.ResumeLayout(false);
