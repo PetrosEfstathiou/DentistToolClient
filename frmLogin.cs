@@ -64,5 +64,12 @@ namespace DentistToolClient
                 .FirstOrDefault();
             return MacAddress;
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            frmAbout start = new frmAbout();
+            start.Show();
+            this.Close();
+        }
     }
 }

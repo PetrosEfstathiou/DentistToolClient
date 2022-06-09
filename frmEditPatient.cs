@@ -47,7 +47,10 @@ namespace DentistToolClient
                 if (task.Success)
                 {
                     MessageBox.Show(task.Message, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    frmMainMenu mm = new frmMainMenu();
+                    mm.Show();
+                    this.Hide();
+
                 }
                 else
                 {
@@ -185,8 +188,10 @@ namespace DentistToolClient
                     if (res.Success)
                     {
                         MessageBox.Show("Patient Deleted", "Delete Patient", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
-                    }
+                        frmMainMenu mm = new frmMainMenu();
+                        mm.Show();
+                        this.Hide();
+                                           }
                     else
                         MessageBox.Show(res.Message, "Delete", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }

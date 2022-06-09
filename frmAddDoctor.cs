@@ -46,7 +46,9 @@ namespace DentistToolClient
                 if (task.Success)
                 {
                     MessageBox.Show(task.Message, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    frmMainMenu mm = new frmMainMenu();
+                    mm.Show();
+                    this.Hide();
                 }
                 else
                 {

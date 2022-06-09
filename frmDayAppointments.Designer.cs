@@ -29,11 +29,12 @@ namespace DentistToolClient
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDayAppointments));
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.userControlDayView1 = new DentistToolClient.UserControlDayView();
             this.btneReminder = new System.Windows.Forms.Button();
+            this.userControlDayView1 = new DentistToolClient.UserControlDayView();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -69,14 +70,6 @@ namespace DentistToolClient
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // userControlDayView1
-            // 
-            this.userControlDayView1.Location = new System.Drawing.Point(12, 12);
-            this.userControlDayView1.Name = "userControlDayView1";
-            this.userControlDayView1.Size = new System.Drawing.Size(468, 576);
-            this.userControlDayView1.TabIndex = 0;
-            this.userControlDayView1.Load += new System.EventHandler(this.userControlDayView1_Load);
-            // 
             // btneReminder
             // 
             this.btneReminder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -88,6 +81,14 @@ namespace DentistToolClient
             this.btneReminder.UseVisualStyleBackColor = true;
             this.btneReminder.Click += new System.EventHandler(this.btneReminder_Click);
             // 
+            // userControlDayView1
+            // 
+            this.userControlDayView1.Location = new System.Drawing.Point(12, 12);
+            this.userControlDayView1.Name = "userControlDayView1";
+            this.userControlDayView1.Size = new System.Drawing.Size(468, 576);
+            this.userControlDayView1.TabIndex = 0;
+            this.userControlDayView1.Load += new System.EventHandler(this.userControlDayView1_Load);
+            // 
             // frmDayAppointments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -98,6 +99,7 @@ namespace DentistToolClient
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.userControlDayView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmDayAppointments";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

@@ -130,7 +130,9 @@ namespace DentistToolClient
                     if (res.Success)
                     {
                         MessageBox.Show("Xray Deleted", "Delete Xray", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
+                        frmMainMenu mm = new frmMainMenu();
+                        mm.Show();
+                        this.Hide();
                     }
                     else
                         MessageBox.Show(res.Message, "Delete", MessageBoxButtons.OK, MessageBoxIcon.Error);

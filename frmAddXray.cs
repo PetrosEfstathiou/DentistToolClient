@@ -127,6 +127,8 @@ namespace DentistToolClient
                 if (ret.Success)
                 {
                     MessageBox.Show("Xray added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    frmMainMenu mm = new frmMainMenu();
+                    mm.Show();
                     this.Close();
                 }
                 else

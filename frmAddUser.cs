@@ -49,6 +49,8 @@ namespace DentistToolClient
                 if (response.Success)
                 {
                     MessageBox.Show(response.Message, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    frmAbout start = new frmAbout();
+                    start.Show();
                     this.Close();
                 }
                 else
@@ -72,6 +74,14 @@ namespace DentistToolClient
 
         private void frmAddUser_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            frmAbout start = new frmAbout();
+            start.Show();
+            this.Close();
 
         }
     }

@@ -29,6 +29,7 @@ namespace DentistToolClient
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddDoctor));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtOther = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -229,6 +230,7 @@ namespace DentistToolClient
             this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAddDoctor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Doctor";
